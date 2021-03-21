@@ -1,0 +1,6 @@
+Job :                                           Time Line:
+
+1. Design The Interface                         2 days -> 3 hours
+2. Code the Timer                               5 Days -> 3 hours
+3. Extra Features                               4 days -> 3 hours
+
