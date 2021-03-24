@@ -22,32 +22,53 @@
             </div>
         </div>
         <!-- Informative Collapsilbe -->
-        <ul class="collapsible">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>About Pomodro</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
+        <div id="info">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>About Pomodro</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
 
-        </ul>
+            </ul>
+        </div>
+
+
+        <div class="card blue-grey darken-2">
+
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s6">
+                        <div class="clock">
+                            <h3><span id="m-min">25</span>:<span id="m-sec">00</span></h3>
+                        </div>
+
+                        <i class="medium material-icons" id="m-play-btn">play_arrow</i>
+                        <i class="medium material-icons" id="m-stop-btn">stop</i>
+                    </div>
+                    <div class="col s6 ">
+                        <h3><span id="b-min">5</span>:<span id="b-sec"> 00</span></h3>
+                        <i class="medium material-icons" id="b-play-btn">play_arrow</i>
+                        <i class="medium material-icons" id="b-stop-btn">stop</i>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
     </div>
-
 
 
     <!-- Compiled and minified Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-
-        // Jquery For Collapsible 
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        });
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-
+    <script src="./app.js">
     </script>
+
 
 </body>
 

@@ -10,3 +10,27 @@
 .fw-400 {
   font-weight: 400 !important;
 }
+
+#m-play-btn,
+#m-stop-btn,
+#b-play-btn,
+#b-stop-btn {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px grey;
+  border-radius: 30px;
+}
+
+#m-play-btn:hover {
+  box-shadow: 1px 1px 10px black;
+}
+#b-play-btn:hover {
+  box-shadow: 1px 1px 10px black;
+}
+
+#m-stop-btn:hover {
+  box-shadow: 1px 1px 10px black;
+}
+
+#b-stop-btn:hover {
+  box-shadow: 1px 1px 10px black;
+}
