@@ -46,3 +46,33 @@
 #b-stop-btn:hover {
   box-shadow: 1px 1px 10px black;
 }
+
+.focus-timer,
+.break-timer {
+  margin: auto;
+  text-align: center;
+  border-radius: 70px;
+  width: 80%;
+}
+.focus-timer {
+  height: 30em;
+  background-color: #5e35b1;
+}
+
+.break-timer {
+  height: 15em;
+  background-color: #6d3ad4;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.score-board {
+  border: 1px solid #6d3ad4;
+  margin: auto;
+  color: black;
+}
+
+.score-box {
+  border-bottom: 1px solid #5e35b1;
+  padding: 10px 20px !important;
+}
