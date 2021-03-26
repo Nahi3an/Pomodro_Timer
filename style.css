@@ -23,6 +23,29 @@
   font-weight: 400 !important;
 }
 
+#txt1 {
+  font-size: 28px;
+  line-height: 24px;
+}
+.nav-icon {
+  /* display: inline-flex;
+  vertical-align: top; */
+  vertical-align: sub;
+}
+
+#faq-btn,
+#settings-btn {
+  width: -webkit-fill-available;
+}
+
+#task-done,
+#task-remove {
+  color: #5e35b1;
+}
+
+.timer-btn {
+  color: rgb(240, 240, 240);
+}
 #m-play-btn,
 #m-stop-btn,
 #b-play-btn,
@@ -51,21 +74,25 @@
 .break-timer {
   margin: auto;
   text-align: center;
-  border-radius: 70px;
+  border-radius: 170px;
   width: 80%;
+  background-color: #6d3ad4;
 }
 .focus-timer {
-  height: 30em;
-  background-color: #5e35b1;
+  height: 28em;
 }
 
 .break-timer {
-  height: 15em;
-  background-color: #6d3ad4;
+  height: 18em;
+
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
+.dial-box {
+  background-color: white;
+  color: #5e35b1;
+}
 .score-board {
   border: 1px solid #6d3ad4;
   margin: auto;

@@ -17,100 +17,188 @@
 </head>
 
 <body>
-    <!-- Title Bar  -->
-    <div class="center-align #673ab7 deep-purple white-text">
-        <header>
-            <h4 class="m-0 p-10" style="font-family: 'Teko', sans-serif;"><i class="material-icons">timer</i> Pomodro
-                Timer App</h4>
-        </header>
-
-    </div>
-
-    <!-- All Collapsible Bar  -->
-    <div>
-        <div class="row" style="margin-bottom:2px !important">
-            <!-- About Section -->
-            <div class="col s12 m6">
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header pl-20"><i class="material-icons m-0">lightbulb_outline</i>About
-                            Pomodro
-                        </div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <div class="col s12">
-                                    <span>Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                        ever since
-                                        the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                        make a type
-                                        specimen book. It has survived not only five centuries, but also the leap into
-                                        electronic typesetting, remaining essentially unchanged. It was popularised in
-                                        the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently
-                                        with desktop publishing software like Aldus PageMaker including versions of
-                                        Lorem
-                                        Ipsum.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
+    <!-- Header  -->
+    <div class="deep-purple">
+        <div class="row">
+            <!-- Title  Icon-->
+            <div class="col m8 s12 center-align white-text"
+                style="padding-top: 10px !important; padding-bottom: 10px !important;">
+                <h4 class="m-0" style="font-family: 'Teko', sans-serif;"><i class="material-icons">timer</i>
+                    Pomodro
+                    Timer App</h4>
             </div>
-            <!-- Setting Section -->
-            <div class="col s12 m6">
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header pl-20">
-                            <i class="material-icons m-0">settings</i>
-                            Settings
-                        </div>
-                        <div class="collapsible-body"><span>Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                ever since
-                                the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                make a type
-                                specimen book. It has survived not only five centuries, but also the leap into
-                                electronic typesetting, remaining essentially unchanged. It was popularised in
-                                the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently
-                                with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem
-                                Ipsum.</span></div>
-                    </li>
 
-                </ul>
+            <!-- FAQ -->
+            <div class="col m2 s6  center-align" style="padding-top: 10px !important; padding-bottom: 10px !important;">
+                <a class="btn modal-trigger deep-purple" id="faq-btn" href="#modal1"><i
+                        class="material-icons m-0 nav-icon">help_outline</i>FAQ</a>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings -->
+            <div class="col m2 s6  center-align" style="padding-top: 10px !important; padding-bottom: 10px !important;">
+                <a class="deep-purple btn modal-trigger" id="settings-btn" href="#modal1"> <i
+                        class="material-icons m-0 nav-icon">settings</i>
+                    Settings</a>
+                <!-- Modal Structure -->
+
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
+
+
     <div class="row" style="margin-top: 0px !important;">
 
-        <div class="col m4 s12">
-            <div class="card focus-timer">
-                <div class="card-content white-text">
-                    <span class="card-title">FOCUS TIMER</span>
+        <!-- Task List Section -->
+        <div class="col s12 m4">
+            <div class="card white">
+                <div class="card-content">
+                    <div class="title center-align">
+                        <h5 style="margin-top: 0px !important;"><i
+                                class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h5>
+                        <div class="input-field">
+                            <input id="email_inline" type="text">
+                            <label for="email_inline">Enter Your Task</label>
+                        </div>
+                    </div>
 
+                    <div>
+                        <ul class="collection">
+
+                            <li class="collection-item"> <span>Task 1</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="collection-item"> <span>Task 2</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="collection-item"> <span>Task 3</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="collection-item"> <span>Task 4</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="collection-item"> <span>Task 5</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Focus Timer -->
+        <div class="col m4 s12">
+            <div class="card focus-timer ">
+                <div class="card-content white-text" style="padding: 5rem;">
+                    <span class="card-title">FOCUS TIMER</span>
+                    <div class="row" style="padding-top: 1rem;
+                     padding-left: 1rem;">
+                        <div class="col dial-box m5 s5" class="">
+                            <h3 class="m-0 " style="padding-bottom: 4px;">25</h3>
+                        </div>
+                        <div class="col dial-box m1 s1" class="">
+                            <h3 class="m-0" style="padding-bottom: 4px;">:</h3>
+                        </div>
+                        <div class=" col dial-box m5 s5">
+                            <h3 class="m-0" style="padding-bottom: 4px;">00</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m4"> <a class="" href=""><i
+                                    class="medium material-icons m-0 timer-btn">play_circle_filled
+                                </i>
+                            </a></div>
+                        <div class="col m4"><a class="" href=""><i class="medium material-icons m-0  timer-btn">stop
+                                </i></a></div>
+                        <div class="col m4"><a><i class="medium material-icons  timer-btn">replay</i></a></div>
+                    </div>
                 </div>
 
             </div>
 
         </div>
 
+        <!-- Break Timer -->
         <div class="col m4 s12">
             <div class="row">
                 <div class="col s12 m12">
-                    <div class="card  break-timer">
-                        <div class="card-content white-text">
+                    <div class="card break-timer">
+                        <div class="card-content white-text  center-align" style="padding: 4rem;">
                             <span class="card-title">Break Timer</span>
+                            <div class="row" style="padding-left: 18px;">
+                                <div class="col dial-box m5 s5" class="">
+                                    <h3 class="m-0 " style="padding-bottom: 4px;">25</h3>
+                                </div>
+                                <div class="col dial-box m1 s1" class="">
+                                    <h3 class="m-0" style="padding-bottom: 4px;">:</h3>
+                                </div>
+                                <div class="col dial-box m5 s5">
+                                    <h3 class="m-0" style="padding-bottom: 4px;">00</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m4"> <a class="" href=""><i
+                                            class="medium material-icons m-0  timer-btn">play_circle_filled
+                                        </i>
+                                    </a></div>
+                                <div class="col m4"><a class="" href=""><i
+                                            class="medium material-icons m-0  timer-btn">stop
+                                        </i></a></div>
+                                <div class="col m4"><a><i class="medium material-icons  timer-btn">replay</i></a></div>
+                            </div>
                         </div>
 
                     </div>
                 </div>
+
+                <!-- Notification -->
                 <div class="col s12 m12">
                     <div class="card score-board">
                         <div class="card-content score-box">
@@ -128,28 +216,8 @@
 
 
 
-        <!-- Task List Section -->
-        <div class="col s12 m4">
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header pl-20"><i class="material-icons m-0">playlist_add</i>Task List
-                    </div>
-                    <div class="collapsible-body"><span>Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since
-                            the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type
-                            specimen book. It has survived not only five centuries, but also the leap into
-                            electronic typesetting, remaining essentially unchanged. It was popularised in
-                            the 1960s
-                            with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                            recently
-                            with desktop publishing software like Aldus PageMaker including versions of
-                            Lorem
-                            Ipsum.</span></div>
-                </li>
-            </ul>
-        </div>
+
+
 
     </div>
     <!-- <div class="container">
