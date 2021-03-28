@@ -7,6 +7,7 @@
     <!--Import Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Let browser know website is optimized for mobile-->
@@ -18,46 +19,137 @@
 
 <body>
     <!-- Header  -->
-    <div class="deep-purple">
+    <div class="deep-purple nav-bar">
         <div class="row">
             <!-- Title  Icon-->
             <div class="col m8 s12 center-align white-text"
                 style="padding-top: 10px !important; padding-bottom: 10px !important;">
-                <h4 class="m-0" style="font-family: 'Teko', sans-serif;"><i class="material-icons">timer</i>
-                    Pomodro
-                    Timer App</h4>
+                <h4 class="m-0"><i class="material-icons">timer</i>
+                    Pomodro Time & Task App</h4>
             </div>
 
             <!-- FAQ -->
-            <div class="col m2 s6  center-align" style="padding-top: 10px !important; padding-bottom: 10px !important;">
+            <div class="col m2 s6" style="padding-top: 10px !important; padding-bottom: 10px !important;">
                 <a class="btn modal-trigger deep-purple" id="faq-btn" href="#modal1"><i
-                        class="material-icons m-0 nav-icon">help_outline</i>FAQ</a>
+                        class="material-icons m-0 nav-icon">help_outline</i> FAQ</a>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
+                    <div class="modal-content"
+                        style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;" ;>
+
+
+
+                        <p style="font-weight: bold ; color: blueviolet;">What is Pomodoro Technique?</p>
+                        <p>Pomodro is a Time Management Technique created by Francesco Cirillo for a more productive way
+                            to manage your work and study. For more detailed info visit <a
+                                href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+                                style="color: blueviolet; text-decoration: none;">Pomodro Technique</a>
+                        </p>
+
+
+                        <p style="font-weight: bold ; color: blueviolet;">How to use Pomodoro Technique?</p>
+                        <p> 1. Devide your work session into small segments of 20-25 minutes.<br>
+                            2. Take a small break of 5 minutes after completing each session.<br>
+                            3. Take a long break of 10 to 20 minutes after completing a full circle.
+                        </p>
+
+
+                        <p style=" font-weight: bold ; color: blueviolet;">How to use this App?</p>
+                        <p> 1. Enter your tasks in the task list.<br>
+                            2. Start the Focus Timer.<br>
+                            3. Get to work...
+                        </p>
                     </div>
-                    <div class="modal-footer">
+                    <!-- <div class="modal-footer">
                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
+
+
             <!-- Settings -->
             <div class="col m2 s6  center-align" style="padding-top: 10px !important; padding-bottom: 10px !important;">
-                <a class="deep-purple btn modal-trigger" id="settings-btn" href="#modal1"> <i
+                <a class="deep-purple btn modal-trigger" id="settings-btn" href="#modal2"> <i
                         class="material-icons m-0 nav-icon">settings</i>
                     Settings</a>
                 <!-- Modal Structure -->
 
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
+                <div id="modal2" class="modal">
+                    <div class="modal-content"
+                        style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;  height:535px" ;>
+
+                        <ul class="collection ">
+                            <li class="collection-item center-align">
+                                <p style="font-size: 20px; font-weight: bolder; margin: auto; color: #6d3ad4;">Custom
+                                    Time Set</p>
+                                <div class="row" style="margin-bottom: 0px !important; margin-top: 5px;">
+                                    <div class="col s12 m4">
+                                        <label for="focus-min">
+                                            <p>Focus Time (Min)</p>
+                                        </label>
+                                        <input id="focus-min" type="number"
+                                            style="border: 1px solid #6d3ad4; width: 50%;">
+
+                                    </div>
+                                    <div class="col s12 m4">
+                                        <label for="focus-min">
+                                            <p>Short Break Time (Min)</p>
+                                        </label>
+                                        <input id="short-break-min" type="number"
+                                            style="border: 1px solid #6d3ad4;  width: 50%;">
+                                    </div>
+                                    <div class="col s12 m4">
+                                        <label for="focus-min">
+                                            <p>Long Break Time (Min)</p>
+                                        </label>
+                                        <input id="long-break-min" type="number"
+                                            style="border: 1px solid #6d3ad4;  width: 50%;">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
+                                <p>Dark Mode</p>
+                                <form action=" #">
+                                    <label>
+                                        <input name="group1" type="radio" />
+                                        <span>ON</span>
+                                    </label>
+                                    <label>
+                                        <input name="group1" type="radio" checked />
+                                        <span>OFF</span>
+                                    </label>
+                            </li>
+                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
+                                <p>Cycle Complete Sound</p>
+                                <form action=" #">
+                                    <label>
+                                        <input name="group2" type="radio" />
+                                        <span>ON</span>
+                                    </label>
+                                    <label>
+                                        <input name="group2" type="radio" checked />
+                                        <span>OFF</span>
+                                    </label>
+                            </li>
+                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
+                                <p>Enable Desktop Notification</p>
+                                <form action=" #">
+                                    <label>
+                                        <input name="group3" type="radio" />
+                                        <span>ON</span>
+                                    </label>
+                                    <label>
+                                        <input name="group3" type="radio" checked />
+                                        <span>OFF</span>
+                                    </label>
+                            </li>
+
+                        </ul>
+
+                        <a class="deep-purple btn-small right" style="margin-bottom: 5px;">Save Changes</a>
+
                     </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
+
                 </div>
             </div>
 
@@ -66,15 +158,17 @@
 
 
 
-    <div class="row" style="margin-top: 0px !important;">
+    <div class="container row" style="margin-top: 0px !important; width: 90% !important;">
 
         <!-- Task List Section -->
         <div class="col s12 m4">
-            <div class="card white">
-                <div class="card-content">
+            <div class="card white task-list">
+                <div class="card-content ">
                     <div class="title center-align">
-                        <h5 style="margin-top: 0px !important;"><i
-                                class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h5>
+                        <span class="card-title" style="font-weight: 900;"><i
+                                class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</span>
+                        <!-- <h4 style="margin-top: 0px !important;"><i
+                                class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h4> -->
                         <div class="input-field">
                             <input id="email_inline" type="text">
                             <label for="email_inline">Enter Your Task</label>
@@ -92,7 +186,7 @@
                                     </i>
                                 </a>
                             </li>
-                            <li class="collection-item"> <span>Task 2</span>
+                            <!-- <li class="collection-item"> <span>Task 2</span>
                                 <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
                                     </i>
                                 </a>
@@ -123,7 +217,7 @@
                                 <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
                                     </i>
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>
@@ -136,28 +230,28 @@
         <!-- Focus Timer -->
         <div class="col m4 s12">
             <div class="card focus-timer ">
-                <div class="card-content white-text" style="padding: 5rem;">
-                    <span class="card-title">FOCUS TIMER</span>
-                    <div class="row" style="padding-top: 1rem;
-                     padding-left: 1rem;">
-                        <div class="col dial-box m5 s5" class="">
-                            <h3 class="m-0 " style="padding-bottom: 4px;">25</h3>
+                <div class="card-content">
+                    <span class="card-title" style="font-weight: 900;">FOCUS TIMER</span>
+                    <div class="row dial-box"
+                        style="padding-left: 0rem; width: max-content;margin: auto; margin-bottom: 1rem;">
+                        <div class="col  m5 s5" class="">
+                            <h4 class="m-0 ">25</h4>
                         </div>
-                        <div class="col dial-box m1 s1" class="">
-                            <h3 class="m-0" style="padding-bottom: 4px;">:</h3>
+                        <div class="col m1 s1" class="">
+                            <h4 class="m-0">:</h4>
                         </div>
-                        <div class=" col dial-box m5 s5">
-                            <h3 class="m-0" style="padding-bottom: 4px;">00</h3>
+                        <div class=" col m5 s5">
+                            <h4 class="m-0">00</h4>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col m4"> <a class="" href=""><i
-                                    class="medium material-icons m-0 timer-btn">play_circle_filled
+                        <div class="col m4 s4"> <a class="" href=""><i
+                                    class=" material-icons m-0 timer-btn">play_circle_filled
                                 </i>
                             </a></div>
-                        <div class="col m4"><a class="" href=""><i class="medium material-icons m-0  timer-btn">stop
+                        <div class="col m4 s4"><a class="" href=""><i class=" material-icons m-0  timer-btn">stop
                                 </i></a></div>
-                        <div class="col m4"><a><i class="medium material-icons  timer-btn">replay</i></a></div>
+                        <div class="col m4 s4"><a><i class="material-icons  timer-btn">replay</i></a></div>
                     </div>
                 </div>
 
@@ -170,28 +264,29 @@
             <div class="row">
                 <div class="col s12 m12">
                     <div class="card break-timer">
-                        <div class="card-content white-text  center-align" style="padding: 4rem;">
-                            <span class="card-title">Break Timer</span>
-                            <div class="row" style="padding-left: 18px;">
-                                <div class="col dial-box m5 s5" class="">
-                                    <h3 class="m-0 " style="padding-bottom: 4px;">25</h3>
+                        <div class="card-content center-align">
+                            <span class="card-title" style="font-weight: 900;">BREAK TIMER</span>
+                            <div class="row dial-box"
+                                style="padding-left: 0rem; width: max-content;margin: auto; margin-bottom: 1rem;">
+                                <div class="col m5 s5">
+                                    <h4 class="m-0">05</h4>
                                 </div>
-                                <div class="col dial-box m1 s1" class="">
-                                    <h3 class="m-0" style="padding-bottom: 4px;">:</h3>
+                                <div class="col s1 m1">
+                                    <h4 class="m-0">:</h4>
                                 </div>
-                                <div class="col dial-box m5 s5">
-                                    <h3 class="m-0" style="padding-bottom: 4px;">00</h3>
+                                <div class=" col m5 s5">
+                                    <h4 class="m-0">00</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col m4"> <a class="" href=""><i
-                                            class="medium material-icons m-0  timer-btn">play_circle_filled
+                                <div class="col m4 s4"> <a class="" href=""><i
+                                            class="material-icons m-0  timer-btn">play_circle_filled
                                         </i>
                                     </a></div>
-                                <div class="col m4"><a class="" href=""><i
-                                            class="medium material-icons m-0  timer-btn">stop
+                                <div class="col m4 s4"><a class="" href=""><i class="material-icons m-0  timer-btn">stop
                                         </i></a></div>
-                                <div class="col m4"><a><i class="medium material-icons  timer-btn">replay</i></a></div>
+                                <div class="col m4 s4"><a><i class="material-icons  timer-btn">replay</i></a>
+                                </div>
                             </div>
                         </div>
 
@@ -199,8 +294,8 @@
                 </div>
 
                 <!-- Notification -->
-                <div class="col s12 m12">
-                    <div class="card score-board">
+                <div class="col s12 m12" style="margin-top: 20px;">
+                    <div class="score-board">
                         <div class="card-content score-box">
                             <p>Completed Quarter Cycle </p>
                         </div>
