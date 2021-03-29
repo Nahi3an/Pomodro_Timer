@@ -57,9 +57,21 @@
   box-shadow: 2px 2px 20px grey;
 }
 
-.input-task-alert {
-  color: #ff201c;
-  font-weight: bold;
+.error-alert {
+  color: white;
+  background-color: #e53935;
+  padding: 3px 10px;
+}
+
+.sucess-alert {
+  color: white;
+  background-color: #43a047;
+  padding: 3px 10px;
+}
+
+.done-task {
+  text-decoration: line-through;
+  font-style: italic;
 }
 #add-taskbtn,
 #dltall-btn {

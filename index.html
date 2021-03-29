@@ -170,12 +170,12 @@
                         <!-- <h4 style="margin-top: 0px !important;"><i
                                 class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h4> -->
                         <div class="input-field task-input-field" style="margin-bottom: 0px !important;">
-                            <input id="task-input" type="text">
-                            <label for="task-input">Enter Your Task</label>
+                            <input id="task-input" type="text" style="border-bottom: 1px solid#5e35b1 !important;">
+                            <label for="task-input" style="color: #5e35b1 ;">Enter Your Task</label>
 
                         </div>
                     </div>
-                    <div class="task-btns">
+                    <div class="task-btns" style="margin-top:5px;">
                         <a class="btn btn-small" id="add-taskbtn">Add Task</a>
                         <a class="btn btn-small" id="dltall-btn">Delete All</a>
                     </div>
@@ -187,7 +187,7 @@
 
                     </ul>
 
-                    <p class="msg"></p>
+
 
                 </div>
 
@@ -198,27 +198,30 @@
         <div class="col m4 s12">
             <div class="card focus-timer ">
                 <div class="card-content">
-                    <span class="card-title" style="font-weight: 900;">FOCUS TIMER</span>
+                    <span class="card-title f-timer-title" style="font-weight: 900;">FOCUS TIMER</span>
+                    <p class="m-0"></p>
                     <div class="row dial-box"
                         style="padding-left: 0rem; width: max-content;margin: auto; margin-bottom: 1rem;">
-                        <div class="col  m5 s5" class="">
-                            <h4 class="m-0 ">25</h4>
+                        <div class="col  m5 s5">
+                            <h4 class="m-0 " id="f_min">01</h4>
                         </div>
-                        <div class="col m1 s1" class="">
+                        <div class="col m1 s1">
                             <h4 class="m-0">:</h4>
                         </div>
                         <div class=" col m5 s5">
-                            <h4 class="m-0">00</h4>
+                            <h4 class="m-0" id="f_sec">00</h4>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col m4 s4"> <a class="" href=""><i
-                                    class=" material-icons m-0 timer-btn">play_circle_filled
+                        <div class="col m4 s4"> <a href="#"><i class="material-icons m-0 timer-btn a b"
+                                    id="f_play">play_circle_filled
+
                                 </i>
                             </a></div>
-                        <div class="col m4 s4"><a class="" href=""><i class=" material-icons m-0  timer-btn">stop
+                        <div class="col m4 s4"><a href=""><i class="material-icons m-0  timer-btn" id="f_stop">stop
                                 </i></a></div>
-                        <div class="col m4 s4"><a><i class="material-icons  timer-btn">replay</i></a></div>
+                        <div class="col m4 s4"><a href=""><i class="material-icons  timer-btn"
+                                    id="f_reply">replay</i></a></div>
                     </div>
                 </div>
 

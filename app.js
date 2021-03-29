@@ -11,10 +11,30 @@ $(document).ready(function () {
   $(".modal").modal();
 });
 
+//**** Task List***** //
+
+// Alert Function For Task List
+function showAlert(parentClassName, msg, styleClassName) {
+  const alert = document.createElement("p");
+
+  alert.classList.add(styleClassName);
+  alert.appendChild(document.createTextNode(msg));
+  const parent = document.querySelector(`${parentClassName}`);
+
+  parent.appendChild(alert);
+
+  setTimeout(function remove() {
+    alert.remove();
+  }, 2000);
+}
+
+// Add Task Button
 const addTaskBtn = document.querySelector("#add-taskbtn");
 
+//Add Task Event Handler
 addTaskBtn.addEventListener("click", addTask);
 
+//Fucntion To Add task
 function addTask(e) {
   const taskInput = document.querySelector("#task-input");
 
@@ -38,12 +58,15 @@ function addTask(e) {
   }
 }
 
+// Body Event Handler for done task & Remove task
 document.body.addEventListener("click", taskControl);
 
+//Fucntion of Controling done task & Remove task
 function taskControl(e) {
   if (e.target.id == "task-done") {
     const tasks = Array.from(e.target.parentElement.parentElement.children);
 
+    //Done Task
     tasks.forEach((task) => {
       if (task.classList.contains("task-name")) {
         if (!task.classList.contains("done-task")) {
@@ -60,30 +83,22 @@ function taskControl(e) {
     });
   }
 
+  //Remove Task
   if (e.target.id == "task-remove") {
     const listItem = e.target.parentElement.parentElement;
 
     listItem.remove();
+    showAlert(".card-content", "Task Removed!", "sucess-alert");
   }
 }
 
-function showAlert(parentClassName, msg, styleClassName) {
-  const alert = document.createElement("p");
-
-  alert.classList.add(styleClassName);
-  alert.appendChild(document.createTextNode(msg));
-  const parent = document.querySelector(`${parentClassName}`);
-
-  parent.appendChild(alert);
-
-  setTimeout(function remove() {
-    alert.remove();
-  }, 1000);
-}
-
+// Delete All Btn
 const dltAllTaskBtn = document.querySelector("#dltall-btn");
+
+// Delete All Btn Event Handler
 dltAllTaskBtn.addEventListener("click", deleteAllTask);
 
+//Function to Delete All Task
 function deleteAllTask(e) {
   const taskLists = Array.from(
     document.querySelector(".task-collection").children
@@ -100,6 +115,60 @@ function deleteAllTask(e) {
     showAlert(".task-input-field", "No task to delete!", "error-alert");
   }
 }
+
+//**** Focus Timer ***** //
+
+const focusPlayBtn = document.querySelector("#f_play");
+const focusStopBtn = document.querySelector("#f_play");
+const focusResetBtn = document.querySelector("#f_play");
+
+focusPlayBtn.addEventListener("click", playPauseFunction);
+
+let count = 0;
+function playPauseFunction(e) {
+  let min = parseInt(document.getElementById("f_min").textContent);
+  let sec = parseInt(document.getElementById("f_sec").textContent);
+
+  const s = setInterval(() => {
+    if (count % 2 == 0) {
+      focusPlayBtn.textContent = "play_circle_filled";
+      clearInterval(s);
+    } else {
+      focusPlayBtn.textContent = "pause";
+      if (sec == 0) {
+        sec = 60;
+        min--;
+      }
+
+      sec--;
+
+      if (min < 10) {
+        document.getElementById("f_min").textContent = "0" + min;
+      } else {
+        document.getElementById("f_min").textContent = min;
+      }
+
+      if (sec < 10) {
+        document.getElementById("f_sec").textContent = "0" + sec;
+      } else {
+        document.getElementById("f_sec").textContent = sec;
+      }
+    }
+
+    if (sec == 0 && min == 0) {
+      document.getElementById("f_min").textContent = "01";
+      document.getElementById("f_sec").textContent = "00";
+
+      focusPlayBtn.textContent = "play_circle_filled";
+      clearInterval(s);
+    }
+  }, 1000);
+
+  count++;
+}
+
+// console.log(document.querySelector(".f-timer-title").nextElementSibling);
+
 /*const main_btn = document.querySelector("#m-play-btn");
 const main_stopBtn = document.querySelector("#m-stop-btn");
 const break_btn = document.querySelector("#b-play-btn");
