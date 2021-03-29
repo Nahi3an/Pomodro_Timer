@@ -164,21 +164,26 @@
         <div class="col s12 m4">
             <div class="card white task-list">
                 <div class="card-content ">
-                    <div class="title center-align">
-                        <span class="card-title" style="font-weight: 900;"><i
+                    <div class="title ">
+                        <span class="card-title center-align" style="font-weight: 900;"><i
                                 class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</span>
                         <!-- <h4 style="margin-top: 0px !important;"><i
                                 class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h4> -->
-                        <div class="input-field">
-                            <input id="email_inline" type="text">
-                            <label for="email_inline">Enter Your Task</label>
+                        <div class="input-field task-input-field" style="margin-bottom: 0px !important;">
+                            <input id="task-input" type="text">
+                            <label for="task-input">Enter Your Task</label>
+
                         </div>
                     </div>
+                    <div class="task-btns">
+                        <a class="btn btn-small" id="add-taskbtn">Add Task</a>
+                        <a class="btn btn-small" id="dltall-btn">Delete All</a>
+                    </div>
+
 
                     <div>
-                        <ul class="collection">
-
-                            <li class="collection-item"> <span>Task 1</span>
+                        <ul class="collection task-collection">
+                            <!--  <li class="collection-item"><span>Task 1</span>
                                 <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
                                     </i>
                                 </a>
@@ -186,7 +191,7 @@
                                     </i>
                                 </a>
                             </li>
-                            <!-- <li class="collection-item"> <span>Task 2</span>
+                           <li class="collection-item"> <span>Task 2</span>
                                 <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
                                     </i>
                                 </a>
@@ -307,60 +312,8 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-    </div>
-    <!-- <div class="container">
-       
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text p-10 blue-grey darken-1">
-                <span class="card-title center-align fw-400">Pomodro Timer</span>
-            </div>
-        </div>
-   
-        <div id="info">
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>About Pomodro</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-
-            </ul>
-        </div> -->
-
-
-    <!-- <div class="card blue-grey darken-2">
-
-        <div class="card-content white-text">
-            <div class="row"> -->
-    <!-- <div class="col s6">
-                    <div class="clock">
-                        <h3><span id="m-min">25</span>:<span id="m-sec">00</span></h3>
-                    </div>
-
-                    <i class="medium material-icons" id="m-play-btn">play_arrow</i>
-                    <i class="medium material-icons" id="m-stop-btn">stop</i>
-                </div>
-                <div class="col s6 ">
-                    <h3><span id="b-min">5</span>:<span id="b-sec"> 00</span></h3>
-                    <i class="medium material-icons" id="b-play-btn">play_arrow</i>
-                    <i class="medium material-icons" id="b-stop-btn">stop</i>
-                </div> -->
-    <!-- </div>
-        </div>
-
-
     </div>
 
-
- -->
-
-    <!-- </div> -->
 
 
     <!-- Compiled and minified Jquery -->

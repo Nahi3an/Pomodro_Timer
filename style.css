@@ -57,6 +57,14 @@
   box-shadow: 2px 2px 20px grey;
 }
 
+.input-task-alert {
+  color: #ff201c;
+  font-weight: bold;
+}
+#add-taskbtn,
+#dltall-btn {
+  background-color: #5e35b1 !important;
+}
 .focus-timer,
 .break-timer {
   margin: auto;

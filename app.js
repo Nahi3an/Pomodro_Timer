@@ -6,7 +6,56 @@ $(document).ready(function () {
   $(".collapsible").collapsible();
 });
 
-const main_btn = document.querySelector("#m-play-btn");
+// Jquery For Modal
+$(document).ready(function () {
+  $(".modal").modal();
+});
+
+const addTaskBtn = document.querySelector("#add-taskbtn");
+
+addTaskBtn.addEventListener("click", addTask);
+
+function addTask(e) {
+  const taskInput = document.querySelector("#task-input");
+
+  if (taskInput.value !== "") {
+    const parent = document.querySelector(".task-collection");
+    const child = document.createElement("li");
+    child.innerHTML = `<span>${taskInput.value}</span>
+                       <a class="right" href="">
+                       <i class="material-icons m-0" id="task-remove">remove_circle</i>
+                      </a>
+                      <a class="right" href="">
+                      <i class="material-icons m-0" id="task-done">check_box
+                      </i>
+                      </a>`;
+    child.classList.add("collection-item");
+    parent.appendChild(child);
+    taskInput.value = "";
+    console.log(taskInput.value);
+  } else {
+    const parent = document.querySelector(".task-input-field");
+    const alertTxt = document.createElement("p");
+    alertTxt.innerHTML = `<p class="input-task-alert">Enter A Task First!</p>`;
+    parent.appendChild(alertTxt);
+
+    setTimeout(function remove() {
+      alertTxt.remove();
+    }, 5000);
+  }
+
+  /**
+   *  <li class="collection-item"><span>Task 1</span>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-remove">remove_circle
+                                    </i>
+                                </a>
+                                <a class="right" href=""><i class="material-icons m-0" id="task-done">check_box
+                                    </i>
+                                </a>
+                            </li>
+   */
+}
+/*const main_btn = document.querySelector("#m-play-btn");
 const main_stopBtn = document.querySelector("#m-stop-btn");
 const break_btn = document.querySelector("#b-play-btn");
 
@@ -21,7 +70,8 @@ function timer(e) {
       e.target.textContent = "play_arrow";
     } else {
       let sec = parseInt(main_sec.textContent);
-      let min = parseInt(main_min.textContent);
+      let min = parseIn
+      t(main_min.textContent);
       if (sec == 0) {
         sec = 60;
         min = min - 1;
@@ -52,3 +102,4 @@ function stop_timer() {
 main_btn.addEventListener("click", timer);
 main_stopBtn.addEventListener("click", stop_timer);
 // break_btn.addEventListener("click", timer);
+*/
