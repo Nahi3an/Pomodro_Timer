@@ -75,8 +75,9 @@
 }
 #add-taskbtn,
 #dltall-btn {
-  background-color: #5e35b1 !important;
+  background-color: rgb(94, 53, 177) !important;
 }
+
 .focus-timer,
 .break-timer {
   margin: auto;
@@ -92,7 +93,9 @@
   height: 15em;
   margin-bottom: 10px;
 }
-
+.togle-timer-border {
+  border: 10px solid white;
+}
 /* .focus-timer {
 
 }
@@ -104,6 +107,20 @@
 
 .dial-box {
   border: 1px solid #5e35b1;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.work-time-ends {
+  text-align: center;
+  background-color: #5e35b1;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  padding: 5px 5px;
+  display: none;
 }
 .score-board {
   margin: auto;

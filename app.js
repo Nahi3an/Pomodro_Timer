@@ -132,9 +132,18 @@ function playPauseFunction(e) {
   const s = setInterval(() => {
     if (count % 2 == 0) {
       focusPlayBtn.textContent = "play_circle_filled";
+      document
+        .querySelector(".focus-timer")
+        .classList.remove("togle-timer-border");
+
       clearInterval(s);
     } else {
+      // document.querySelector(".focus-timer").add
       focusPlayBtn.textContent = "pause";
+      document
+        .querySelector(".focus-timer")
+        .classList.toggle("togle-timer-border");
+
       if (sec == 0) {
         sec = 60;
         min--;
@@ -156,6 +165,12 @@ function playPauseFunction(e) {
     }
 
     if (sec == 0 && min == 0) {
+      document
+        .querySelector(".focus-timer")
+        .classList.remove("togle-timer-border");
+
+      document.querySelector(".focus-timer").classList.add("disabled");
+      document.querySelector(".work-time-ends").style.display = "inline-block";
       document.getElementById("f_min").textContent = "01";
       document.getElementById("f_sec").textContent = "00";
 
