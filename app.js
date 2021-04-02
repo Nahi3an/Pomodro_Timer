@@ -127,31 +127,51 @@ function deleteAllTask(e) {
 
 const focusPlayBtn = document.querySelector("#f_play");
 const focusResetBtn = document.querySelector("#f_reset");
-focusPlayBtn.addEventListener("mouseenter", hoverStyleAdd);
-focusPlayBtn.addEventListener("mouseleave", hoverStyleRmv);
 
-// Hover Event Handlers
-focusResetBtn.addEventListener("mouseenter", hoverStyleAdd);
-focusResetBtn.addEventListener("mouseleave", hoverStyleRmv);
+const breakPlayBtn = document.querySelector("#b_play");
+const breakResetBtn = document.querySelector("#b_reset");
 
-//*Hover Fucntion Play & Reset Buttons For Both Timer
-function hoverStyleAdd(e) {
-  e.target.classList.add("timer-btn-hover");
-}
-
-function hoverStyleRmv(e) {
-  e.target.classList.remove("timer-btn-hover");
-}
-
-//**Play & Pause Btn
+//**Focus Timer Play & Pause Btn
 focusPlayBtn.addEventListener("click", focusTimerControl);
 focusResetBtn.addEventListener("click", focusTimerControl);
+
+breakPlayBtn.addEventListener("click", focusTimerControl);
+breakResetBtn.addEventListener("click", focusTimerControl);
 
 let count = 0;
 //Main timer control function
 function focusTimerControl(e) {
-  let min = parseInt(document.getElementById("f_min").textContent);
-  let sec = parseInt(document.getElementById("f_sec").textContent);
+  let min_txt, sec_txt, min, sec, timerBody, playBtn, otherTimerBody;
+
+  if (e.target.id == "f_play") {
+    min_txt = document.getElementById("f_min");
+    sec_txt = document.getElementById("f_sec");
+    timerBody = document.querySelector(".focus-timer");
+    otherTimerBody = document.querySelector(".break-timer");
+    playBtn = focusPlayBtn;
+    min = parseInt(min_txt.textContent);
+    sec = parseInt(sec_txt.textContent);
+    otherTimerBody.classList.add("disabled");
+  } else if (e.target.id == "b_play") {
+    min_txt = document.getElementById("b_min");
+    sec_txt = document.getElementById("b_sec");
+    timerBody = document.querySelector(".break-timer");
+    otherTimerBody = document.querySelector(".focus-timer");
+    playBtn = breakPlayBtn;
+    min = parseInt(min_txt.textContent);
+    sec = parseInt(sec_txt.textContent);
+    otherTimerBody.classList.add("disabled");
+  } else {
+    if (e.target.id == "b_reset") {
+      min_txt = document.getElementById("b_min");
+      sec_txt = document.getElementById("b_sec");
+      playBtn = breakPlayBtn;
+    } else if (e.target.id == "f_reset") {
+      min_txt = document.getElementById("f_min");
+      sec_txt = document.getElementById("f_sec");
+      playBtn = focusPlayBtn;
+    }
+  }
 
   document.querySelector("#notification-board").innerHTML = "";
 
@@ -166,92 +186,249 @@ function focusTimerControl(e) {
   }
 
   const s = setInterval(() => {
-    if (e.target.id == "f_play") {
+    if (e.target.id == "f_play" || e.target.id == "b_play") {
       //*Pause
       if (count % 2 == 0) {
-        focusPlayBtn.textContent = "play_circle_filled";
-        document
-          .querySelector(".focus-timer")
-          .classList.remove("togle-timer-border");
+        playBtn.textContent = "play_circle_filled";
+        timerBody.classList.remove("togle-timer-border");
 
         clearInterval(s);
       } else {
-        //*** PLay
+        //*** Play
 
-        document
-          .querySelector(".focus-timer")
-          .classList.toggle("togle-timer-border");
+        timerBody.classList.toggle("togle-timer-border");
 
-        //**Loading the Undone Tasks From Task List
-        if (document.querySelector(".task-collection").children.length != 0) {
-          const taskList = Array.from(
-            document.querySelector(".task-collection").children
-          );
+        //**Only Loads Task if Main timer is on */
+        if (e.target.id == "f_play") {
+          if (document.querySelector(".task-collection").children.length != 0) {
+            //**Loading the Undone Tasks From Task List
+            const taskList = Array.from(
+              document.querySelector(".task-collection").children
+            );
 
-          const undoneTasks = taskList.filter((task) => {
-            if (!task.firstElementChild.classList.contains("done-task")) {
-              return task.firstElementChild;
+            const undoneTasks = taskList.filter((task) => {
+              if (!task.firstElementChild.classList.contains("done-task")) {
+                return task.firstElementChild;
+              }
+            });
+
+            //If once cross button is Clicked Dont load the task
+            //untill given permisson
+            if (
+              !document
+                .querySelector("#ongoing-task")
+                .classList.contains("closebtn-clicked")
+            ) {
+              showLabel(undoneTasks);
             }
-          });
-
-          //If once cross button is Clicked Dont load the task
-          //untill given permisson
-          if (
-            !document
-              .querySelector("#ongoing-task")
-              .classList.contains("closebtn-clicked")
-          ) {
-            showLabel(undoneTasks);
           }
         }
 
-        focusPlayBtn.textContent = "pause";
+        playBtn.textContent = "pause";
+
         if (sec == 0) {
           sec = 60;
           min--;
         }
 
         sec--;
+        console.log(sec);
 
         if (min < 10) {
-          document.getElementById("f_min").textContent = "0" + min;
+          min_txt.textContent = `00`;
         } else {
-          document.getElementById("f_min").textContent = min;
+          min_txt.textContent = `${min}`;
         }
 
         if (sec < 10) {
-          document.getElementById("f_sec").textContent = "0" + sec;
+          console.log(sec_txt.textContent);
+          sec_txt.textContent = "0" + sec;
+          console.log(sec_txt.textContent);
         } else {
-          document.getElementById("f_sec").textContent = sec;
+          sec_txt.textContent = `${sec}`;
         }
       }
     }
 
     //** Finish
     if (sec == 0 && min == 0) {
-      const runningTimer = document.querySelector(".focus-timer");
-      const disabledTimer = document.querySelector(".break-timer");
-      const text1 = "Work Time Over!";
-      const text2 = "Take A Small Break";
-      timerFinish(runningTimer, disabledTimer, text1, text2);
+      playBtn.textContent = "play_circle_filled";
+      min_txt.textContent = "00";
+      sec_txt.textContent = "10";
+
+      timerBody.classList.remove("togle-timer-border");
+      timerBody.classList.add("disabled");
+      otherTimerBody.classList.remove("disabled");
+
+      showNotification(timerBody);
       cycleCounter();
-      focusPlayBtn.textContent = "play_circle_filled";
-      document.getElementById("f_min").textContent = "00";
-      document.getElementById("f_sec").textContent = "10";
       clearInterval(s);
     }
   }, 1000);
 
   //Reset Btn
-  if (e.target.id == "f_reset") {
-    document.getElementById("f_min").textContent = "05";
-    document.getElementById("f_sec").textContent = "00";
+  if (e.target.id == "f_reset" || e.target.id == "b_reset") {
+    min_txt.textContent = "00";
+    sec_txt.textContent = "10";
 
-    focusPlayBtn.textContent = "play_circle_filled";
+    playBtn.textContent = "play_circle_filled";
     clearInterval(s);
   }
   count++;
 }
+
+function showNotification(timerBody) {
+  let txt1, txt2;
+
+  if (timerBody.id == "focus-timer") {
+    txt1 = "Work Session Over!";
+    txt2 = "Take A Short Break!";
+  } else if (timerBody.id == "break-timer") {
+    console.log("ok");
+    txt1 = "Break Session Over!";
+    txt2 = "Get Back To Work!";
+  }
+
+  document.querySelector("#notification-board").classList.add("work-time-ends");
+  document.querySelector("#notification-board").innerHTML = `
+    <h5 class="m-0 ">
+    <i class="material-icons" style="font-weight: bolder !important;">notifications</i>
+    </h5>
+    <h5 style="font-weight: bolder !important;">${txt1}</h5>
+    <h6>${txt2}</h6>`;
+}
+
+function cycleCounter() {
+  let quarter_value = parseInt(
+    document.getElementById("quarter_counter").textContent
+  );
+  let full_value = parseInt(
+    document.getElementById("full_counter").textContent
+  );
+
+  quarter_value++;
+
+  document.getElementById("quarter_counter").textContent = quarter_value;
+
+  if (quarter_value % 4 == 0 && quarter_value !== 0) {
+    full_value++;
+    document.getElementById("full_counter").textContent = full_value;
+  }
+  longBreakTimer(quarter_value);
+}
+
+//** Break Timer*/
+
+focusPlayBtn.addEventListener("mouseenter", hoverStyleAdd);
+focusPlayBtn.addEventListener("mouseleave", hoverStyleRmv);
+
+// Hover Event Handlers
+focusResetBtn.addEventListener("mouseenter", hoverStyleAdd);
+focusResetBtn.addEventListener("mouseleave", hoverStyleRmv);
+
+// Hover Event Handlers
+breakPlayBtn.addEventListener("mouseenter", hoverStyleAdd);
+breakPlayBtn.addEventListener("mouseleave", hoverStyleRmv);
+
+breakResetBtn.addEventListener("mouseenter", hoverStyleAdd);
+breakResetBtn.addEventListener("mouseleave", hoverStyleRmv);
+
+//*Hover Fucntion Play & Reset Buttons For Both Timer
+function hoverStyleAdd(e) {
+  e.target.classList.add("timer-btn-hover");
+}
+
+function hoverStyleRmv(e) {
+  e.target.classList.remove("timer-btn-hover");
+}
+
+// //**Play & Pause Btn
+// breakPlayBtn.addEventListener("click", breakTimerControl);
+// breakResetBtn.addEventListener("click", breakTimerControl);
+
+// let count_2 = 0;
+// //Break Timer Control
+// function breakTimerControl(e) {
+//   let min = parseInt(document.getElementById("b_min").textContent);
+//   let sec = parseInt(document.getElementById("b_sec").textContent);
+//   document.querySelector("#notification-board").innerHTML = "";
+
+//   //** Removing the Style of Notification Board */
+//   if (
+//     document
+//       .querySelector("#notification-board")
+//       .classList.contains("work-time-ends")
+//   ) {
+//     document
+//       .querySelector("#notification-board")
+//       .classList.remove("work-time-ends");
+//   }
+
+//   const s = setInterval(() => {
+//     if (e.target.id == "b_play") {
+//       //* Pause Break Timer
+//       if (count_2 % 2 == 0) {
+//         breakPlayBtn.textContent = "play_circle_filled";
+//         document
+//           .querySelector(".break-timer")
+//           .classList.remove("togle-timer-border");
+
+//         clearInterval(s);
+//       } else {
+//         //*** Play Break Timer
+
+//         document
+//           .querySelector(".break-timer")
+//           .classList.toggle("togle-timer-border");
+
+//         breakPlayBtn.textContent = "pause";
+//         if (sec == 0) {
+//           sec = 60;
+//           min--;
+//         }
+
+//         sec--;
+
+//         if (min < 10) {
+//           document.getElementById("b_min").textContent = "0" + min;
+//         } else {
+//           document.getElementById("b_min").textContent = min;
+//         }
+
+//         if (sec < 10) {
+//           document.getElementById("b_sec").textContent = "0" + sec;
+//         } else {
+//           document.getElementById("b_sec").textContent = sec;
+//         }
+//       }
+//     }
+
+//     //** Finish
+//     if (sec == 0 && min == 0) {
+//       const runningTimer = document.querySelector(".break-timer");
+//       const disabledTimer = document.querySelector(".focus-timer");
+//       const text1 = "Break Time Over!";
+//       const text2 = "Get Back To Work";
+//       timerFinish(runningTimer, disabledTimer, text1, text2);
+//       document.getElementById("b_min").textContent = "00";
+//       document.getElementById("b_sec").textContent = "10";
+
+//       breakPlayBtn.textContent = "play_circle_filled";
+//       clearInterval(s);
+//     }
+//   }, 1000);
+
+//   //Reset Btn
+//   if (e.target.id == "b_reset") {
+//     document.getElementById("b_min").textContent = "01";
+//     document.getElementById("b_sec").textContent = "00";
+
+//     breakPlayBtn.textContent = "play_circle_filled";
+//     clearInterval(s);
+//   }
+
+//   count_2++;
+// }
 
 //***Showing task label In the timer
 function showLabel(undoneTasks) {
@@ -306,133 +483,14 @@ function closeLable(e) {
   }
 }
 
-//** Break Timer*/
-
-const breakPlayBtn = document.querySelector("#b_play");
-const breakResetBtn = document.querySelector("#b_reset");
-
-// Hover Event Handlers
-breakPlayBtn.addEventListener("mouseenter", hoverStyleAdd);
-breakPlayBtn.addEventListener("mouseleave", hoverStyleRmv);
-
-breakResetBtn.addEventListener("mouseenter", hoverStyleAdd);
-breakResetBtn.addEventListener("mouseleave", hoverStyleRmv);
-
-//**Play & Pause Btn
-breakPlayBtn.addEventListener("click", breakTimerControl);
-breakResetBtn.addEventListener("click", breakTimerControl);
-
-let count_2 = 0;
-//Break Timer Control
-function breakTimerControl(e) {
-  let min = parseInt(document.getElementById("b_min").textContent);
-  let sec = parseInt(document.getElementById("b_sec").textContent);
-
-  document.querySelector("#notification-board").innerHTML = "";
-  if (
-    document
-      .querySelector("#notification-board")
-      .classList.contains("work-time-ends")
-  ) {
-    document
-      .querySelector("#notification-board")
-      .classList.remove("work-time-ends");
-  }
-
-  const s = setInterval(() => {
-    if (e.target.id == "b_play") {
-      //* Pause Break Timer
-      if (count_2 % 2 == 0) {
-        breakPlayBtn.textContent = "play_circle_filled";
-        document
-          .querySelector(".break-timer")
-          .classList.remove("togle-timer-border");
-
-        clearInterval(s);
-      } else {
-        //*** Play Break Timer
-
-        document
-          .querySelector(".break-timer")
-          .classList.toggle("togle-timer-border");
-
-        breakPlayBtn.textContent = "pause";
-        if (sec == 0) {
-          sec = 60;
-          min--;
-        }
-
-        sec--;
-
-        if (min < 10) {
-          document.getElementById("b_min").textContent = "0" + min;
-        } else {
-          document.getElementById("b_min").textContent = min;
-        }
-
-        if (sec < 10) {
-          document.getElementById("b_sec").textContent = "0" + sec;
-        } else {
-          document.getElementById("b_sec").textContent = sec;
-        }
-      }
-    }
-
-    //** Finish
-    if (sec == 0 && min == 0) {
-      const runningTimer = document.querySelector(".break-timer");
-      const disabledTimer = document.querySelector(".focus-timer");
-      const text1 = "Break Time Over!";
-      const text2 = "Get Back To Work";
-      timerFinish(runningTimer, disabledTimer, text1, text2);
-      document.getElementById("b_min").textContent = "00";
-      document.getElementById("b_sec").textContent = "10";
-
-      breakPlayBtn.textContent = "play_circle_filled";
-      clearInterval(s);
-    }
-  }, 1000);
-
-  //Reset Btn
-  if (e.target.id == "b_reset") {
-    document.getElementById("b_min").textContent = "01";
-    document.getElementById("b_sec").textContent = "00";
-
-    breakPlayBtn.textContent = "play_circle_filled";
-    clearInterval(s);
-  }
-
-  count_2++;
-}
-
-function timerFinish(runningTimer, disabledTimer, text1, text2) {
-  runningTimer.classList.remove("togle-timer-border");
-
-  runningTimer.classList.add("disabled");
-  disabledTimer.classList.remove("disabled");
-  document.querySelector("#notification-board").classList.add("work-time-ends");
-  document.querySelector("#notification-board").innerHTML = `
-    <h5 class="m-0 ">
-    <i class="material-icons" style="font-weight: bolder !important;">notifications</i>
-    </h5>
-    <h5 style="font-weight: bolder !important;">${text1}</h5> 
-    <h6>${text2}</h6>`;
-}
-
-function cycleCounter() {
-  let quarter_value = parseInt(
-    document.getElementById("quarter_counter").textContent
-  );
-  let full_value = parseInt(
-    document.getElementById("full_counter").textContent
-  );
-
-  quarter_value++;
-
-  document.getElementById("quarter_counter").textContent = quarter_value;
-
-  if (quarter_value % 4 == 0) {
-    full_value++;
-    document.getElementById("full_counter").textContent = full_value;
+function longBreakTimer(quarter_value) {
+  if (quarter_value % 4 == 0 && quarter_value !== 0) {
+    document.querySelector("#break-title").textContent = "LONG BREAK TIMER";
+    document.getElementById("b_min").textContent = "00";
+    document.getElementById("b_sec").textContent = "15";
+  } else {
+    document.querySelector("#break-title").textContent = "SHORT BREAK TIMER";
+    document.getElementById("b_min").textContent = "00";
+    document.getElementById("b_sec").textContent = "10";
   }
 }
