@@ -165,10 +165,8 @@
             <div class="card white task-list">
                 <div class="card-content ">
                     <div class="title ">
-                        <span class="card-title center-align" style="font-weight: 900;"><i
+                        <span class="card-title center-align" style="font-weight: 900; margin-top: 20px;"><i
                                 class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</span>
-                        <!-- <h4 style="margin-top: 0px !important;"><i
-                                class="material-icons m-0 nav-icon center-align">playlist_add</i>Task List</h4> -->
                         <div class="input-field task-input-field" style="margin-bottom: 0px !important;">
                             <input id="task-input" type="text" style="border-bottom: 1px solid#5e35b1 !important;">
                             <label for="task-input" style="color: #5e35b1 ;">Enter Your Task</label>
@@ -196,48 +194,48 @@
 
         <!-- Focus Timer -->
         <div class="col m4 s12">
-            <!-- style="z-index: -1;" -->
+
             <div class="card focus-timer">
                 <div class="card-content">
                     <span class="card-title f-timer-title" style="font-weight: 900;">FOCUS TIMER</span>
-                    <p class="m-0"></p>
+
+                    <div id="ongoing-task">
+
+                    </div>
+
+
                     <div class="row dial-box"
                         style="padding-left: 0rem; width: max-content;margin: auto; margin-bottom: 1rem;">
-                        <div class="col  m5 s5">
-                            <h4 class="m-0 " id="f_min">01</h4>
+                        <div class="col m12 s12">
+                            <div class="col  m5 s5">
+                                <h4 class="m-0 " id="f_min">00</h4>
+                            </div>
+                            <div class="col m1 s1">
+                                <h4 class="m-0">:</h4>
+                            </div>
+                            <div class=" col m5 s5">
+                                <h4 class="m-0" id="f_sec">10</h4>
+                            </div>
                         </div>
-                        <div class="col m1 s1">
-                            <h4 class="m-0">:</h4>
-                        </div>
-                        <div class=" col m5 s5">
-                            <h4 class="m-0" id="f_sec">00</h4>
-                        </div>
+
+
+
                     </div>
-                    <div class="row">
-                        <div class="col m4 s4"> <a href="#"><i class="material-icons m-0 timer-btn a b"
+                    <div class="row" style="padding-left: 0rem; width: max-content;margin: auto;">
+                        <div class="col m6 s6 "> <a href="#" class=""><i class=" material-icons m-0 timer-btn"
                                     id="f_play">play_circle_filled
 
                                 </i>
                             </a></div>
-                        <div class="col m4 s4"><a href=""><i class="material-icons m-0  timer-btn" id="f_stop">stop
-                                </i></a></div>
-                        <div class="col m4 s4"><a href=""><i class="material-icons  timer-btn"
-                                    id="f_reply">replay</i></a></div>
+
+                        <div class="col m6 s6"><a href="#"><i class="material-icons  timer-btn"
+                                    id="f_reset">replay</i></a></div>
                     </div>
                 </div>
 
             </div>
-            <!-- <div class="work-time-ends" style="z-index:10;  position: fixed"> -->
-            <div class="work-time-ends">
-                <h5 style="font-weight: bolder !important;">Work time ends! Take a break!</h5>
-                <h5 class="m-0 "> <i class="material-icons" style="font-weight: bolder !important;">notifications</i>
-                </h5>
+            <div id="notification-board">
 
-                <p><span style="font-style: italic; margin-top: 0px !important;">Hatts off on working so hard! <br>
-                        Celebrate it by taking a small
-                        break !<br>Small Breaks are important to
-                        increase your
-                        productivity. !!!</span> 😀 </p>
             </div>
 
         </div>
@@ -252,24 +250,24 @@
                             <div class="row dial-box"
                                 style="padding-left: 0rem; width: max-content;margin: auto; margin-bottom: 1rem;">
                                 <div class="col m5 s5">
-                                    <h4 class="m-0">05</h4>
+                                    <h4 class="m-0" id="b_min">00</h4>
                                 </div>
                                 <div class="col s1 m1">
                                     <h4 class="m-0">:</h4>
                                 </div>
                                 <div class=" col m5 s5">
-                                    <h4 class="m-0">00</h4>
+                                    <h4 class="m-0" id="b_sec">10</h4>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col m4 s4"> <a class="" href=""><i
-                                            class="material-icons m-0  timer-btn">play_circle_filled
+                            <div class="row" style="padding-left: 0rem; width: max-content;margin: auto;">
+                                <div class="col m6 s6 "> <a href="#" class=""><i class=" material-icons m-0 timer-btn"
+                                            id="b_play">play_circle_filled
+
                                         </i>
                                     </a></div>
-                                <div class="col m4 s4"><a class="" href=""><i class="material-icons m-0  timer-btn">stop
-                                        </i></a></div>
-                                <div class="col m4 s4"><a><i class="material-icons  timer-btn">replay</i></a>
-                                </div>
+
+                                <div class="col m6 s6"><a href="#"><i class="material-icons  timer-btn"
+                                            id="b_reset">replay</i></a></div>
                             </div>
                         </div>
 
@@ -280,10 +278,10 @@
                 <div class="col s12 m12" style="margin-top: 20px;">
                     <div class="score-board">
                         <div class="card-content score-box">
-                            <p>Completed Quarter Cycle </p>
+                            <p>Completed Quarter Cycle : <span id="quarter_counter">0</span> </p>
                         </div>
                         <div class="card-content score-box">
-                            <p>Completed Full Cycle </p>
+                            <p>Completed Full Cycle : <span id="full_counter">0</span></p>
                         </div>
                     </div>
                 </div>

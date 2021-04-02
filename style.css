@@ -52,6 +52,20 @@
   font-size: 45px;
 }
 
+.timer-btn-hover {
+  color: #3c2075;
+  font-size: 50px;
+}
+
+.ongoing-task {
+  margin-bottom: 10px;
+  font-size: 16px;
+  /* text-decoration: underline; */
+  background: #5e35b1;
+  color: white;
+  border-radius: 7px;
+}
+
 .task-list {
   font-family: "Ubuntu", sans-serif;
   box-shadow: 2px 2px 20px grey;
@@ -96,14 +110,11 @@
 .togle-timer-border {
   border: 10px solid white;
 }
-/* .focus-timer {
 
+.focus-timer-withtask {
+  padding-top: 0px !important;
+  height: 17rem;
 }
-
-.break-timer {
-  height: 15em;
-  margin-bottom: 10px;
-} */
 
 .dial-box {
   border: 1px solid #5e35b1;
@@ -119,8 +130,7 @@
   background-color: #5e35b1;
   color: white;
   font-family: "Ubuntu", sans-serif;
-  padding: 5px 5px;
-  display: none;
+  padding: 20px 5px;
 }
 .score-board {
   margin: auto;
@@ -128,12 +138,12 @@
 }
 
 .score-box {
-  padding: 0px 23px !important;
   border: 1px solid #5e35b1;
   margin-bottom: 10px;
-  padding: 0px 23px !important;
-  border-radius: 25px;
+  padding: 0px 13px !important;
+  border-radius: 14px;
   font-family: "Ubuntu", sans-serif;
   background-color: #5e35b1;
   color: white;
+  text-align: center;
 }
