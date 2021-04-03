@@ -92,6 +92,10 @@
   background-color: rgb(94, 53, 177) !important;
 }
 
+#session-done {
+  background-color: #3c2075;
+}
+
 .focus-timer,
 .break-timer {
   margin: auto;
@@ -146,4 +150,24 @@
   background-color: #5e35b1;
   color: white;
   text-align: center;
+}
+
+#focus-min,
+#short-break-min,
+#long-break-min {
+  border: 1px solid #6d3ad4;
+  width: 50%;
+  text-align: center;
+}
+
+/* Disable Number Input Scroll*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

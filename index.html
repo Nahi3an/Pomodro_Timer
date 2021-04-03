@@ -33,7 +33,7 @@
                 <a class="btn modal-trigger deep-purple" id="faq-btn" href="#modal1"><i
                         class="material-icons m-0 nav-icon">help_outline</i> FAQ</a>
                 <!-- Modal Structure -->
-                <div id="modal1" class="modal">
+                <div id="modal1" class="modal" style="max-height:none !important;">
                     <div class="modal-content"
                         style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;" ;>
 
@@ -60,9 +60,7 @@
                             3. Get to work...
                         </p>
                     </div>
-                    <!-- <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div> -->
+
                 </div>
             </div>
 
@@ -74,79 +72,99 @@
                     Settings</a>
                 <!-- Modal Structure -->
 
-                <div id="modal2" class="modal">
+                <div id="modal2" class="modal" style="max-height:75% !important;">
                     <div class="modal-content"
                         style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;  height:535px" ;>
 
                         <ul class="collection ">
-                            <li class="collection-item center-align">
-                                <p style="font-size: 20px; font-weight: bolder; margin: auto; color: #6d3ad4;">Custom
+                            <li class="collection-item center-align "
+                                style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
+                                <p class="m-0">Custom
                                     Time Set</p>
                                 <div class="row" style="margin-bottom: 0px !important; margin-top: 5px;">
                                     <div class="col s12 m4">
                                         <label for="focus-min">
                                             <p>Focus Time (Min)</p>
                                         </label>
-                                        <input id="focus-min" type="number"
-                                            style="border: 1px solid #6d3ad4; width: 50%;">
+                                        <input id="focus-min" type="number">
 
                                     </div>
                                     <div class="col s12 m4">
-                                        <label for="focus-min">
+                                        <label for="short-break-min">
                                             <p>Short Break Time (Min)</p>
                                         </label>
-                                        <input id="short-break-min" type="number"
-                                            style="border: 1px solid #6d3ad4;  width: 50%;">
+                                        <input id="short-break-min" type="number">
                                     </div>
                                     <div class="col s12 m4">
-                                        <label for="focus-min">
+                                        <label for="long-break-min">
                                             <p>Long Break Time (Min)</p>
                                         </label>
-                                        <input id="long-break-min" type="number"
-                                            style="border: 1px solid #6d3ad4;  width: 50%;">
+                                        <input id="long-break-min" type="number">
                                     </div>
                                 </div>
                             </li>
-                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
-                                <p>Dark Mode</p>
-                                <form action=" #">
+                            <li class="collection-item"
+                                style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
+                                <p class="m-0">Dark Mode</p>
+                                <form action=" #" style="margin-top:10px;">
                                     <label>
-                                        <input name="group1" type="radio" />
+                                        <input name="dark_mode" type="radio" id="dark_mode_on" class="on" />
                                         <span>ON</span>
                                     </label>
                                     <label>
-                                        <input name="group1" type="radio" checked />
+                                        <input name="dark_mode" type="radio" id="dark_mode_off" checked />
                                         <span>OFF</span>
                                     </label>
+                                </form>
                             </li>
-                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
-                                <p>Cycle Complete Sound</p>
-                                <form action=" #">
+                            <li class="collection-item"
+                                style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
+                                <p class="m-0">Timer Sound</p>
+                                <form action=" #" style="margin-top:10px;">
                                     <label>
-                                        <input name="group2" type="radio" />
+                                        <input name="timer_sound" type="radio" id="timer_sound_on" class="on" checked />
                                         <span>ON</span>
                                     </label>
                                     <label>
-                                        <input name="group2" type="radio" checked />
+                                        <input name="timer_sound" type="radio" id="timer_sound_off" />
                                         <span>OFF</span>
                                     </label>
+                                </form>
                             </li>
-                            <li class="collection-item" style="font-size: 15px; font-weight: bolder; color: #6d3ad4;">
-                                <p>Enable Desktop Notification</p>
-                                <form action=" #">
+                            <li class="collection-item"
+                                style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
+                                <p class="m-0">Cycle Complete Sound</p>
+                                <form action=" #" style="margin-top:10px;">
                                     <label>
-                                        <input name="group3" type="radio" />
+                                        <input name="cycle_sound" type="radio" id="cycle_sound_on" class="on" checked />
                                         <span>ON</span>
                                     </label>
                                     <label>
-                                        <input name="group3" type="radio" checked />
+                                        <input name="cycle_sound" type="radio" id="cycle_sound_off" />
                                         <span>OFF</span>
                                     </label>
+                                </form>
                             </li>
+                            <li class="collection-item"
+                                style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
+                                <p class="m-0">Enable Desktop Notification</p>
+                                <form action=" #" style="margin-top:10px;">
+                                    <label>
+                                        <input name="desktop_sound" type="radio" id="desktop_sound_on" class="on" />
+                                        <span>ON</span>
+                                    </label>
+                                    <label>
+                                        <input name="desktop_sound" type="radio" id="desktop_sound_off" checked />
+                                        <span>OFF</span>
+                                    </label>
+                                </form>
+                            </li>
+
 
                         </ul>
 
-                        <a class="deep-purple btn-small right" style="margin-bottom: 5px;">Save Changes</a>
+                        <a class="deep-purple btn-small right" style="margin-bottom: 5px;" id="setting-btn">Save
+                            Changes</a>
 
                     </div>
 
@@ -214,7 +232,7 @@
                                 <h4 class="m-0">:</h4>
                             </div>
                             <div class=" col m5 s5">
-                                <h4 class="m-0" id="f_sec">10</h4>
+                                <h4 class="m-0" id="f_sec">00</h4>
                             </div>
                         </div>
 
@@ -236,7 +254,15 @@
             </div>
             <div id="notification-board">
 
+
             </div>
+            <audio id="timer-sound">
+                <source src="./timer_sound-[AudioTrimmer.com].wav" type="audio/wav">
+            </audio>
+            <audio id="finish-sound">
+                <source src="./finish_alarm.mp3" type="audio/wav">
+
+            </audio>
 
         </div>
 
@@ -256,7 +282,7 @@
                                     <h4 class="m-0">:</h4>
                                 </div>
                                 <div class=" col m5 s5">
-                                    <h4 class="m-0" id="b_sec">10</h4>
+                                    <h4 class="m-0" id="b_sec">00</h4>
                                 </div>
                             </div>
                             <div class="row" style="padding-left: 0rem; width: max-content;margin: auto;">
