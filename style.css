@@ -111,6 +111,7 @@
   height: 15em;
   margin-bottom: 10px;
 }
+
 .togle-timer-border {
   border: 10px solid white;
 }
@@ -170,4 +171,13 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+@media (max-width: 400px) {
+  .break-timer {
+    height: 18em;
+  }
+  .focus-timer {
+    height: 16rem;
+  }
 }

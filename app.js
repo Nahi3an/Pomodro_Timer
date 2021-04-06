@@ -134,73 +134,30 @@ function loadDefaultValue() {
   document.querySelector("#b_min").textContent = "05";
 
   focusInput.value = "25";
-  shortInput.value = "05";
+  shortInput.value = "5";
   longInput.value = "10";
 }
 
 loadDefaultValue();
 
-//*** Settings */
-
-const saveSettingBtn = document.querySelector("#setting-btn");
-
-saveSettingBtn.addEventListener("click", saveSettings);
-
-function saveSettings() {
-  const radioBtn = Array.from(document.querySelectorAll(".on"));
-
-  radioBtn.forEach((btn) => {
-    if (btn.id == "dark_mode_on") {
-      modeChange(btn);
-    } else if (btn.id == "desktop_sound_on") {
-      desktopNotificationControl();
-    } else {
-      soundChange(btn);
-    }
-  });
-  saveValue();
-}
-
-function modeChange(btn) {
-  if (btn.checked) {
+// const modeChangeBtn = document.querySelector("#dark_mode_on");
+document.body.addEventListener("click", function (e) {
+  if (e.target.id == "dark_mode_on") {
     document.body.style.backgroundColor = "grey";
-  } else {
+  } else if (e.target.id == "dark_mode_off") {
     document.body.style.backgroundColor = "white";
   }
-}
-
-function soundChange(btn) {
-  if ((btn.id = "timer_sound_on")) {
-    if (btn.checked) {
-    } else {
-    }
-  } else {
-    if (btn.checked) {
-    } else {
-    }
-  }
-}
-
-function saveValue() {
-  if (focusInput.value < 10) {
-    document.querySelector("#f_min").textContent = "0" + focusInput.value;
-  } else {
-    document.querySelector("#f_min").textContent = focusInput.value;
-  }
-
-  if (shortInput.value < 10) {
-    document.querySelector("#b_min").textContent = "0" + shortInput.value;
-  } else {
-    document.querySelector("#b_min").textContent = shortInput.value;
-  }
-}
+});
 
 //**** Focus Timer ***** //
 
+//*Sound Notification
 const timerSound = document.getElementById("timer-sound");
 
 function playTimerSound() {
-  timerSound.play();
+  if (document.querySelector("#timer_sound_on").checked) {
+    timerSound.play();
+  }
 }
 
 function pauseTimerSound() {
@@ -210,19 +167,23 @@ function pauseTimerSound() {
 const finishSound = document.getElementById("finish-sound");
 
 function playFinishSound() {
-  finishSound.play();
+  if (document.querySelector("#cycle_sound_on").checked) {
+    finishSound.play();
+  }
 }
 
 function pauseFinishSound() {
   finishSound.pause();
 }
 
+/** Main Timer Part */
 const focusPlayBtn = document.querySelector("#f_play");
 const focusResetBtn = document.querySelector("#f_reset");
 
 const breakPlayBtn = document.querySelector("#b_play");
 const breakResetBtn = document.querySelector("#b_reset");
 
+const saveSettingBtn = document.querySelector("#setting-btn");
 //**Focus Timer Play & Reset  Event Handler
 focusPlayBtn.addEventListener("click", timerControl);
 focusResetBtn.addEventListener("click", timerControl);
@@ -230,7 +191,7 @@ focusResetBtn.addEventListener("click", timerControl);
 //**Break Timer Play & Reset  Event Handler
 breakPlayBtn.addEventListener("click", timerControl);
 breakResetBtn.addEventListener("click", timerControl);
-
+saveSettingBtn.addEventListener("click", timerControl);
 //*Both Timer Control Function
 let count = 0;
 function timerControl(e) {
@@ -273,13 +234,13 @@ function timerControl(e) {
     //**Reset Button  */
     if (e.target.id == "b_reset") {
       //*If Break Timer reset Button Clicked
-
+      timerBody = document.querySelector(".break-timer");
       min_txt = document.getElementById("b_min");
       sec_txt = document.getElementById("b_sec");
       playBtn = breakPlayBtn;
     } else if (e.target.id == "f_reset") {
       //*If Focus Timer reset Button Clicked
-
+      timerBody = document.querySelector(".focus-timer");
       min_txt = document.getElementById("f_min");
       sec_txt = document.getElementById("f_sec");
       playBtn = focusPlayBtn;
@@ -352,28 +313,14 @@ function timerControl(e) {
         playTimerSound();
       }
     }
-
     //** Finish
     if (sec == 0 && min == 0) {
-      playBtn.textContent = "play_circle_filled";
-
-      let defaultMin;
-
       if (timerBody.id == "focus-timer") {
-        if (focusInput.value < 10) {
-          defaultMin = "0" + focusInput.value;
-        } else {
-          defaultMin = focusInput.value;
-        }
+        resetTimer(min_txt, sec_txt, focusInput.value);
       } else {
-        if (shortInput.value < 10) {
-          defaultMin = "0" + shortInput.value;
-        } else {
-          defaultMin = shortInput.value;
-        }
+        resetTimer(min_txt, sec_txt, shortInput.value);
       }
-      min_txt.textContent = defaultMin;
-      sec_txt.textContent = "00";
+      playBtn.textContent = "play_circle_filled";
 
       timerBody.classList.remove("togle-timer-border");
       timerBody.classList.add("disabled");
@@ -389,24 +336,49 @@ function timerControl(e) {
     }
   }, 1000);
 
+  //Save Value On Settings
+  if (e.target.id == "setting-btn") {
+    console.log("ok");
+
+    resetTimer(
+      document.getElementById("f_min"),
+      document.getElementById("f_sec"),
+      focusInput.value
+    );
+
+    resetTimer(
+      document.getElementById("b_min"),
+      document.getElementById("b_sec"),
+      shortInput.value
+    );
+
+    clearInterval(s);
+  }
+
   //Reset Btn
   if (e.target.id == "f_reset" || e.target.id == "b_reset") {
-    console.log(e.target.id);
-    if (e.target.id == "f_reset") {
-      min_txt.textContent = focusInput.value;
+    if (timerBody.id == "focus-timer") {
+      resetTimer(min_txt, sec_txt, focusInput.value);
     } else {
-      min_txt.textContent = shortInput.value;
+      resetTimer(min_txt, sec_txt, shortInput.value);
     }
 
-    sec_txt.textContent = "00";
     pauseTimerSound();
     removeNotification();
-    playBtn.textContent = "play_circle_filled";
-    clearInterval(s);
+    document.getElementById("f_play").textContent = "play_circle_filled";
   }
   count++;
 }
 
+//Function To Reset Timer Values
+function resetTimer(minute, sec, value) {
+  if (value < 10) {
+    minute.textContent = "0" + value;
+  } else {
+    minute.textContent = value;
+  }
+  sec.textContent = "00";
+}
 //**  Notification Showing Fucntion */
 function showNotification(timerBody) {
   let txt1, txt2, txt3;
@@ -432,6 +404,7 @@ function showNotification(timerBody) {
     <a class="btn btn-small" id="session-done" style="margin-top:5px !important">${txt3}</a>`;
 }
 
+//**Function TO display Ongoing Notification */
 function ongoingNotification(txt1, quoets, icon) {
   document.querySelector("#notification-board").classList.add("work-time-ends");
   document.querySelector("#notification-board").innerHTML = `
@@ -441,6 +414,8 @@ function ongoingNotification(txt1, quoets, icon) {
     <h5 style="font-weight: bolder !important; margin-top:2px !important">${txt1}</h5>
     <h6 style="font-style:italic">${quoets}</h6>`;
 }
+
+//**Function to Remove Ongoing Notification */
 
 function removeNotification() {
   document.querySelector("#notification-board").innerHTML = "";
