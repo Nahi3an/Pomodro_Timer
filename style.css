@@ -64,6 +64,9 @@
   font-size: 50px;
 }
 
+.sound-btn-hover {
+  color: black;
+}
 .ongoing-task {
   margin-bottom: 10px;
   font-size: 16px;

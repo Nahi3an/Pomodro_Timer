@@ -150,10 +150,13 @@ loadDefaultValue();
 //**** Focus Timer ***** //
 
 //*Sound Notification
+
+//*Timer Sound
 const timerSound = document.getElementById("timer-sound");
 
+const timerSoundOn = document.getElementById("timer_sound_on");
 function playTimerSound() {
-  if (document.querySelector("#timer_sound_on").checked) {
+  if (timerSoundOn.classList.contains("on")) {
     timerSound.play();
   }
 }
@@ -162,17 +165,65 @@ function pauseTimerSound() {
   timerSound.pause();
 }
 
-const finishSound = document.getElementById("finish-sound");
+document.body.addEventListener("click", function (e) {
+  if (e.target.id == "timer_sound_on") {
+    if (!timerSoundOn.classList.contains("on")) {
+      timerSoundOn.classList.add("on");
+    }
+  } else if (e.target.id == "timer_sound_off") {
+    timerSoundOn.classList.remove("on");
+  }
+});
 
-function playFinishSound() {
-  if (document.querySelector("#cycle_sound_on").checked) {
-    finishSound.play();
+/**Sound button Hover */
+document
+  .getElementById("timer_sound_on")
+  .addEventListener("mouseenter", soundBtnStyle);
+document
+  .getElementById("timer_sound_on")
+  .addEventListener("mouseleave", soundBtnStyle);
+document
+  .getElementById("timer_sound_off")
+  .addEventListener("mouseenter", soundBtnStyle);
+document
+  .getElementById("timer_sound_off")
+  .addEventListener("mouseleave", soundBtnStyle);
+
+function soundBtnStyle(e) {
+  if (e.type == "mouseenter") {
+    e.target.classList.add("sound-btn-hover");
+  } else if (e.type == "mouseleave") {
+    e.target.classList.remove("sound-btn-hover");
   }
 }
 
-function pauseFinishSound() {
-  finishSound.pause();
-}
+// const finishSound = document.getElementById("finish-sound");
+
+// const finishSoundOn = document.getElementById("cycle_sound_on");
+// let pass = 1;
+// function playFinishSound() {
+//   if (pass) {
+//     finishSound.play();
+//   }
+// }
+
+// // function test() {
+
+// // }
+
+// // test();
+
+// function pauseFinishSound() {
+//   finishSound.pause();
+// }
+
+// document.body.addEventListener("click", function (e) {
+//   if (e.target.id == "cycle_sound_on") {
+//     pass = 1;
+//   } else if (e.target.id == "cycle_sound_off") {
+//     pass = 0;
+//   }
+// });
 
 /** Main Timer Part */
 const focusPlayBtn = document.querySelector("#f_play");
@@ -434,7 +485,6 @@ function removeNotification() {
 }
 //**Stoping the finish Sound */
 document.body.addEventListener("click", function (e) {
-  e.preventDefault();
   if (e.target.id == "session-done") {
     pauseFinishSound();
     removeNotification();
