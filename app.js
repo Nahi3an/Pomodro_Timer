@@ -434,6 +434,7 @@ function removeNotification() {
 }
 //**Stoping the finish Sound */
 document.body.addEventListener("click", function (e) {
+  e.preventDefault();
   if (e.target.id == "session-done") {
     pauseFinishSound();
     removeNotification();
@@ -556,3 +557,8 @@ function closeLable(e) {
     document.querySelector(".dial-box").style.marginTop = "0px";
   }
 }
+
+const anchors = document.querySelector(".no_use_a");
+anchors.addEventListener("click", function (e) {
+  e.preventDefault();
+});
