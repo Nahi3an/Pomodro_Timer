@@ -23,6 +23,13 @@
   font-weight: 400 !important;
 }
 
+.light-mode {
+  background-color: #2a174a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%232a174a' cx='50' cy='0' r='50'/%3E%3Cg fill='%232d194f' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23301a54' cx='50' cy='100' r='50'/%3E%3Cg fill='%23331c59' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23351e5e' cx='50' cy='200' r='50'/%3E%3Cg fill='%23381f64' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%233b2169' cx='50' cy='300' r='50'/%3E%3Cg fill='%233e236e' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23412574' cx='50' cy='400' r='50'/%3E%3Cg fill='%23442679' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%2347287e' cx='50' cy='500' r='50'/%3E%3Cg fill='%234a2a84' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%234e2c89' cx='50' cy='600' r='50'/%3E%3Cg fill='%23512d8f' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23542f95' cx='50' cy='700' r='50'/%3E%3Cg fill='%2357319a' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%235a33a0' cx='50' cy='800' r='50'/%3E%3Cg fill='%235d35a6' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%236136ab' cx='50' cy='900' r='50'/%3E%3Cg fill='%236438b1' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23673ab7' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: contain;
+}
+
 #txt1 {
   font-size: 28px;
   line-height: 24px;
@@ -44,7 +51,7 @@
 
 #task-done,
 #task-remove {
-  color: #5e35b1;
+  color: #6d3ad4;
 }
 
 .timer-btn {
@@ -61,14 +68,13 @@
   margin-bottom: 10px;
   font-size: 16px;
   /* text-decoration: underline; */
-  background: #5e35b1;
+  background: #6d3ad4;
   color: white;
   border-radius: 7px;
 }
 
 .task-list {
   font-family: "Ubuntu", sans-serif;
-  box-shadow: 2px 2px 20px grey;
 }
 
 .error-alert {
@@ -89,7 +95,7 @@
 }
 #add-taskbtn,
 #dltall-btn {
-  background-color: rgb(94, 53, 177) !important;
+  background-color: #6d3ad4 !important;
 }
 
 #session-done {
@@ -105,7 +111,7 @@
   border-radius: 91px;
   margin-top: 8px;
   border: 10px solid #6d3ad4;
-  box-shadow: 5px 2px 18px grey;
+
   font-family: "Ubuntu", sans-serif;
   color: #5e35b1;
   height: 15em;
@@ -122,7 +128,7 @@
 }
 
 .dial-box {
-  border: 1px solid #5e35b1;
+  border: 1px solid #6d3ad4;
 }
 
 .disabled {
@@ -132,23 +138,19 @@
 
 .work-time-ends {
   text-align: center;
-  background-color: #5e35b1;
+  background-color: #6d3ad4;
   color: white;
   font-family: "Ubuntu", sans-serif;
   padding: 20px 5px;
 }
-.score-board {
-  margin: auto;
-  color: black;
-}
 
 .score-box {
-  border: 1px solid #5e35b1;
+  border: 1px solid #6d3ad4;
   margin-bottom: 10px;
   padding: 0px 13px !important;
   border-radius: 14px;
   font-family: "Ubuntu", sans-serif;
-  background-color: #5e35b1;
+  background-color: #6d3ad4;
   color: white;
   text-align: center;
 }

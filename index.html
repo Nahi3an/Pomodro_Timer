@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body class="light-mode">
     <!-- Header  -->
     <div class="deep-purple nav-bar">
         <div class="row">
@@ -48,9 +48,9 @@
 
 
                         <p style="font-weight: bold ; color: blueviolet;">How to use Pomodoro Technique?</p>
-                        <p> 1. Devide your work session into small segments of 20-25 minutes.<br>
+                        <p> 1. Divide your work session into small segments of 20-25 minutes.<br>
                             2. Take a small break of 5 minutes after completing each session.<br>
-                            3. Take a long break of 10 to 20 minutes after completing a full circle.
+                            3. Take a long break of 10 to 20 minutes after completing a full cycle of 4 session.
                         </p>
 
 
@@ -72,9 +72,9 @@
                     Settings</a>
                 <!-- Modal Structure -->
 
-                <div id="modal2" class="modal" style="max-height:75% !important;">
+                <div id="modal2" class="modal" style="max-height:none !important;">
                     <div class="modal-content"
-                        style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;  height:535px" ;>
+                        style="font-family: Ubuntu, sans-serif; text-align: justify; font-weight: 700;" ;>
 
                         <ul class="collection ">
                             <li class="collection-item center-align "
@@ -82,28 +82,36 @@
                                 <p class="m-0">Custom
                                     Time Set</p>
                                 <div class="row" style="margin-bottom: 0px !important; margin-top: 5px;">
-                                    <div class="col s12 m4">
+                                    <div class="col s12 m3">
                                         <label for="focus-min">
                                             <p>Focus Time (Min)</p>
                                         </label>
                                         <input id="focus-min" type="number">
 
                                     </div>
-                                    <div class="col s12 m4">
+                                    <div class="col s12 m3">
                                         <label for="short-break-min">
                                             <p>Short Break Time (Min)</p>
                                         </label>
                                         <input id="short-break-min" type="number">
                                     </div>
-                                    <div class="col s12 m4">
+                                    <div class="col s12 m3">
                                         <label for="long-break-min">
                                             <p>Long Break Time (Min)</p>
                                         </label>
                                         <input id="long-break-min" type="number">
                                     </div>
+                                    <div class="col s12 m3">
+                                        <a class="deep-purple btn-small" style="margin-bottom: 5px;"
+                                            id="setting-btn">Change Time
+
+                                        </a>
+                                    </div>
+
                                 </div>
+
                             </li>
-                            <li class="collection-item"
+                            <!-- <li class="collection-item"
                                 style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
                                 <p class="m-0">Dark Mode</p>
                                 <form action=" #" style="margin-top:10px;">
@@ -116,7 +124,7 @@
                                         <span>OFF</span>
                                     </label>
                                 </form>
-                            </li>
+                            </li> -->
                             <li class="collection-item"
                                 style="font-size: 15px; font-weight: bolder; color: #6d3ad4; margin:auto">
                                 <p class="m-0">Timer Sound</p>
@@ -163,8 +171,6 @@
 
                         </ul>
 
-                        <a class="deep-purple btn-small right" style="margin-bottom: 5px;" id="setting-btn">Save
-                            Changes</a>
 
                     </div>
 
@@ -240,7 +246,7 @@
 
                     </div>
                     <div class="row" style="padding-left: 0rem; width: max-content;margin: auto;">
-                        <div class="col m6 s6 "> <a href="#" class=""><i class=" material-icons m-0 timer-btn"
+                        <div class="col m6 s6 "> <a href="#" class=""><i class=" material-icons m-0 timer-btn a b"
                                     id="f_play">play_circle_filled
 
                                 </i>

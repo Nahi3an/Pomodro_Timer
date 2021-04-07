@@ -23,9 +23,16 @@ function showAlert(parentClassName, msg, styleClassName) {
 
   parent.appendChild(alert);
 
-  setTimeout(function remove() {
-    alert.remove();
-  }, 2000);
+  let res = alert.textContent.split(" ");
+  if (res.length <= 2) {
+    setTimeout(function remove() {
+      alert.remove();
+    }, 500);
+  } else {
+    setTimeout(function remove() {
+      alert.remove();
+    }, 1000);
+  }
 }
 
 // Add Task Button
@@ -53,10 +60,10 @@ function addTask(e) {
                       </a>`;
       child.classList.add("collection-item");
       parent.appendChild(child);
-      showAlert(".task-input-field", "Task added to the list!", "sucess-alert");
+      showAlert(".task-input-field", "Task Added!", "sucess-alert");
       taskInput.value = "";
     } else {
-      showAlert(".task-input-field", "Enter a task first!", "error-alert");
+      showAlert(".task-input-field", "No Task To Add!", "error-alert");
     }
   }
 }
@@ -75,11 +82,11 @@ function taskControl(e) {
           task.classList.add("done-task");
           e.target.style.color = "grey";
 
-          showAlert(".card-content", "Task marked as done!", "sucess-alert");
+          showAlert(".card-content", "Done!", "sucess-alert");
         } else {
           task.classList.remove("done-task");
           e.target.style.color = "#5e35b1";
-          showAlert(".card-content", "Task marked as not done!", "error-alert");
+          showAlert(".card-content", "Not Done!", "error-alert");
         }
       }
     });
@@ -117,9 +124,9 @@ function deleteAllTask(e) {
         taskList.remove();
       }
     });
-    showAlert(".task-input-field", "All tasks deleted!", "sucess-alert");
+    showAlert(".task-input-field", "All Tasks Deleted!", "sucess-alert");
   } else {
-    showAlert(".task-input-field", "No task to delete!", "error-alert");
+    showAlert(".task-input-field", "No Tasks to delete!", "error-alert");
   }
 }
 
@@ -139,15 +146,6 @@ function loadDefaultValue() {
 }
 
 loadDefaultValue();
-
-// const modeChangeBtn = document.querySelector("#dark_mode_on");
-document.body.addEventListener("click", function (e) {
-  if (e.target.id == "dark_mode_on") {
-    document.body.style.backgroundColor = "grey";
-  } else if (e.target.id == "dark_mode_off") {
-    document.body.style.backgroundColor = "white";
-  }
-});
 
 //**** Focus Timer ***** //
 
@@ -315,6 +313,10 @@ function timerControl(e) {
     }
     //** Finish
     if (sec == 0 && min == 0) {
+      //**Reseting Counter For Each timer  */
+      count = 0;
+
+      //**Reseting Timer Value After Finishing  */
       if (timerBody.id == "focus-timer") {
         resetTimer(min_txt, sec_txt, focusInput.value);
       } else {
@@ -322,11 +324,13 @@ function timerControl(e) {
       }
       playBtn.textContent = "play_circle_filled";
 
+      //**Removing blinking */
       timerBody.classList.remove("togle-timer-border");
       timerBody.classList.add("disabled");
       otherTimerBody.classList.remove("disabled");
 
       showNotification(timerBody);
+      //**Only Counting Cycle if it is the main timer */
       if (timerBody.id == "focus-timer") {
         cycleCounter();
       }
@@ -338,8 +342,6 @@ function timerControl(e) {
 
   //Save Value On Settings
   if (e.target.id == "setting-btn") {
-    console.log("ok");
-
     resetTimer(
       document.getElementById("f_min"),
       document.getElementById("f_sec"),
@@ -357,6 +359,7 @@ function timerControl(e) {
 
   //Reset Btn
   if (e.target.id == "f_reset" || e.target.id == "b_reset") {
+    clearInterval(s);
     if (timerBody.id == "focus-timer") {
       resetTimer(min_txt, sec_txt, focusInput.value);
     } else {
